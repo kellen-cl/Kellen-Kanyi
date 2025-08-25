@@ -1,9 +1,11 @@
-  var typed = new Typed('#typed', {
-    strings: ["Developer", "Freelancer", "Writer"],
-    typeSpeed: 80,
-    backSpeed: 50,
-    loop: true
-  });
+// Initialize Typed.js
+var typed = new Typed('#typed', {
+  strings: ["Developer", "Freelancer", "Writer"], // Words to type
+  typeSpeed: 80,     // Typing speed in ms
+  backSpeed: 50,     // Backspace speed in ms
+  backDelay: 1000,   // Pause before backspacing
+  loop: true         // Repeat forever
+});
 
   //Script for handling success/error 
   document.getElementById("contact-form").addEventListener("submit", async function(event) {
