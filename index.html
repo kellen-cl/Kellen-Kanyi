@@ -16,301 +16,27 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="IMAGES/favicon2.ico">
   <link rel="icon" type="image/png" href="IMAGES/FAVICONKK.png">
+
+  <!-- PNG icons for modern browsers -->
+<link rel="icon" type="image/png" sizes="32x32" href="/IMAGES/FAVICONKK.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/IMAGES/FAVICONKK.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/IMAGES/FAVICONKK.png">
+
+<!-- Apple iPhone/iPad -->
+<link rel="apple-touch-icon" sizes="180x180" href="/IMAGES/apple-touch-icon.png">
+
+<!-- Android Chrome -->
+<meta name="theme-color" content="#4CAF50"> <!-- sets browser bar color -->
+<link rel="manifest" href="/manifest.json">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
-  <style>
-     :root {
-  --primary-color: #be29ec; /* vibrant accent */
-  --secondary-color: #800080; /* deep purple */
-  --light-accent: #efbbff; /* pastel highlight background */
-  --dark-color: #111; /* base text */
-  --light-bg: #f8f8fc;
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'Poppins', sans-serif;
-}
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="mything.css">
 
-/* Base Styles */
-body {
-  font-family: var(--font-body);
-  background-color: white;
-  color: var(--dark-color);
-}
+  <!--JavaScript-->
+  <script src="mything.js"></script>
 
-h1, h2, h3, h4, h5 {
-  font-family: var(--font-heading);
-}
-
-/* ==============================
-   Navbar
-   ============================== */
-.navbar {
-  background-color: var(--dark-color) !important;
-}
-.navbar-brand {
-  color: var(--primary-color) !important;
-  font-weight: 700;
-  font-size: 1.3rem;
-}
-.nav-link {
-  color: white !important;
-  transition: color 0.3s ease;
-}
-.nav-link:hover {
-  color: var(--primary-color) !important;
-}
-
-/* ==============================
-   Hero Section
-   ============================== */
-#home {
-  min-height: 100vh;         /* allow  flexibility */
-  display: flex;
-  align-items: center;
-  justify-content: center;   /* centers text vertically */
-  padding-top: 70px;         /* adjust this to your navbar height */
-  background: url('IMAGES/space.jpeg') no-repeat center center/cover;
-  position: relative;
-}
-#home::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-}
-#home .content {
-  position: relative;
-  z-index: 2;
-  color: #fff;
-}
-
-/* Hero Text */
-#home h1 {
-  font-size: 3rem;       /* Adjust main heading */
-  font-weight: 700;
-  line-height: 1.2;      /* Improve readability */
-  margin-bottom: 15px;   /* Space below main title */
-  animation: fadeInDown 1s ease-in-out;
-}
-#home h3 {
-  font-size: 1.5rem;     /* Smaller than h1 */
-  font-weight: 500;
-  color: #a64ca6;        /* Purple shade */
-  margin-bottom: 15px;
-  min-height: 40px;      /* Prevent layout jump */
-  animation: fadeInUp 1.5s ease-in-out;
-}
-#home p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-/* Hero Animations */
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Buttons */
-.btn-custom {
-  background: var(--primary-color);
-  color: #fff;
-  border-radius: 30px;
-  padding: 10px 20px;
-}
-.btn-custom:hover {
-  background: var(--secondary-color);
-  color: #fff;
-}
-
-/* ==============================
-   About Section
-   ============================== */
-#about h2 {
-  font-weight: 700;
-  font-size: 32px;
-  color: var(--default-color);
-}
-#about .about-list li {
-  margin-bottom: 12px;
-  font-size: 16px;
-  color: #444;
-}
-#about .about-list i {
-  margin-right: 10px;
-  font-size: 20px;
-  color: #9b59b6; /* purple shade */
-}
-#about p.fst-italic {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-/* ==============================
-   Sections
-   ============================== */
-section {
-  padding: 80px 0;
-}
-#about, #developer {
-  background: white;
-}
-#writing {
-  background: var(--light-accent);
-}
-#contact {
-  background: #1a1a1a;
-  color: white;
-}
-#contact label {
-  color: #ddd;
-}
-
-/* ==============================
-   Cards
-   ============================== */
-.card {
-  border: none;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-  transition: transform 0.2s;
-}
-.card:hover {
-  transform: translateY(-5px);
-}
-.card-title {
-  color: var(--secondary-color);
-}
-
-/* ==============================
-   Icons
-   ============================== */
-i, .bi {
-  color: var(--primary-color);
-  transition: color 0.3s ease;
-}
-i:hover, .bi:hover {
-  color: var(--secondary-color);
-}
-
-/* ==============================
-   Footer
-   ============================== */
-footer {
-  background: var(--dark-color);
-  color: #aaa;
-  font-size: 0.9rem;
-}
-footer a {
-  color: var(--primary-color);
-}
-footer a:hover {
-  color: var(--primary-color);
-}
-    footer .social-links a {
-  font-size: 1.4rem;
-  color: var(--primary-color);
-  transition: color 0.3s ease;
-}
-
-footer .social-links a:hover {
-  color: var(--secondary-color);
-}
-
-
-/* ==============================
-   Responsive Media Queries
-   ============================== */
-
-/* Small devices: phones (up to 576px) */
-@media (max-width: 576px) {
-  /* Navbar */
-  nav {
-    flex-direction: column;
-    text-align: center;
-  }
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  /* Hero */
-  #home {
-    flex-direction: column;
-    text-align: center;
-    padding: 40px 20px;
-  }
-  #home h1 {
-    font-size: 2rem;
-  }
-  #home h3 {
-    font-size: 1.2rem;
-  }
-  #home p {
-    font-size: 0.95rem;
-  }
-
-  #home .content {
-    max-width: 100%;
-  }
-  #home img {
-    width: 100%;
-    margin-top: 20px;
-  }
-
-  /* Cards */
-  .card {
-    margin: 10px 0;
-  }
-
-  /* Contact form */
-  form {
-    width: 100%;
-  }
-}
-
-/* Medium devices: tablets (577px - 992px) */
-@media (min-width: 577px) and (max-width: 992px) {
-  nav ul {
-    gap: 15px;
-  }
-  #home {
-    flex-direction: row;
-    text-align: left;
-    padding: 60px 40px;
-  }
-  .card {
-    margin: 15px auto;
-  }
-  form {
-    width: 80%;
-    margin: auto;
-  }
-}
-
-/* Large devices: desktops (993px and up) */
-@media (min-width: 993px) {
-  nav ul {
-    gap: 20px;
-  }
-  #home {
-    height: 100vh;
-    padding: 80px;
-  }
-  .card {
-    margin: 20px;
-  }
-}
-
-
-    
-  </style>
 </head>
 <body>
 
@@ -585,40 +311,7 @@ footer .social-links a:hover {
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-<script>
-  var typed = new Typed('#typed', {
-    strings: ["Developer", "Freelancer", "Writer"],
-    typeSpeed: 80,
-    backSpeed: 50,
-    loop: true
-  });
 
-  //Script for handling success/error 
-  document.getElementById("contact-form").addEventListener("submit", async function(event) {
-  event.preventDefault(); // Prevent normal form submission
-  const form = event.target;
-  const data = new FormData(form);
-  const action = form.action;
-
-  try {
-    let response = await fetch(action, {
-      method: form.method,
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    });
-
-    if (response.ok) {
-      document.getElementById("form-success").classList.remove("d-none");
-      document.getElementById("form-error").classList.add("d-none");
-      form.reset(); // Clear the form
-    } else {
-      document.getElementById("form-error").classList.remove("d-none");
-    }
-  } catch (error) {
-    document.getElementById("form-error").classList.remove("d-none");
-  }
-});
-</script>
 </body>
 </html>
 
