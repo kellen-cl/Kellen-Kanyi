@@ -454,13 +454,12 @@ footer{background:var(--ink);padding:2.5rem 5vw;display:flex;flex-wrap:wrap;just
       </div>
     </div>
     <div class="reveal d2">
-      <form action="https://formspree.io/f/mzzvlvny" method="POST">
-        <div class="f-group"><label class="f-label">Your Name</label><input class="f-input" type="text" name="name" placeholder="Your full name" required></div>
+      <form id="contact-form" action="https://formspree.io/f/mzzvlvny" method="POST">        <div class="f-group"><label class="f-label">Your Name</label><input class="f-input" type="text" name="name" placeholder="Your full name" required></div>
         <div class="f-group"><label class="f-label">Email Address</label><input class="f-input" type="email" name="_replyto" placeholder="hello@example.com" required></div>
         <div class="f-group"><label class="f-label">Phone (optional)</label><input class="f-input" type="tel" name="phone" placeholder="+254 700 000 000"></div>
         <div class="f-group"><label class="f-label">Message</label><textarea class="f-input" name="message" placeholder="Tell me about your project..." required></textarea></div>
-        <button type="submit" class="btn-send">Send Message &#8594;</button>
-      </form>
+    <button type="submit" class="btn-send">Send Message &#8594;</button>
+    <p id="form-success" style="display:none;margin-top:1.1rem;color:var(--p);font-weight:600;font-size:.9rem;">✓ Thank you! Your message has been sent.</p>      </form>
     </div>
   </div>
 </section>
@@ -502,6 +501,33 @@ const co=new IntersectionObserver(es=>es.forEach(e=>{
   co.unobserve(el)
 }),{threshold:.5})
 document.querySelectorAll('[data-count]').forEach(el=>co.observe(el))
+  document.getElementById('contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('.btn-send');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      form.reset();
+      document.getElementById('form-success').style.display = 'block';
+      btn.style.display = 'none';
+    } else {
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again.');
+    }
+  } catch {
+    btn.textContent = 'Send Message →';
+    btn.disabled = false;
+    alert('Network error. Please check your connection.');
+  }
+});
 </script>
 </body>
 </html>
