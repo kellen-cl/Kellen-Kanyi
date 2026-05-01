@@ -39,6 +39,7 @@ nav.scrolled{background:rgba(255,255,255,.94);backdrop-filter:blur(18px);border-
 .mob-menu a:nth-child(3){animation-delay:.15s}
 .mob-menu a:nth-child(4){animation-delay:.2s}
 .mob-menu a:nth-child(5){animation-delay:.25s}
+.mob-menu a:nth-child(6){animation-delay:.3s}
 .mob-menu a:hover{color:var(--p)}
 @keyframes mobIn{to{opacity:1;transform:translateY(0)}}
 
@@ -143,8 +144,28 @@ section{padding:7rem 5vw;position:relative}
 .proj-gh-btn{display:inline-flex;align-items:center;gap:.65rem;margin-top:3rem;background:transparent;border:1.5px solid rgba(255,255,255,.15);color:#fff;padding:.85rem 2rem;font-family:'Outfit',sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.06em;text-decoration:none;border-radius:100px;transition:all .3s}
 .proj-gh-btn:hover{background:var(--p);border-color:var(--p)}
 
+/* FAQ */
+#faq{background:var(--off)}
+.faq-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:2rem;margin-bottom:3.5rem}
+.faq-note{max-width:280px;color:var(--ink3);font-size:.9rem;line-height:1.75;font-weight:300}
+.faq-list{max-width:860px}
+.faq-item{border-top:1px solid var(--border)}
+.faq-item:last-child{border-bottom:1px solid var(--border)}
+.faq-btn{width:100%;background:none;border:none;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;padding:1.6rem 0;cursor:pointer;text-align:left;font-family:'Fraunces',serif;font-size:clamp(1rem,2vw,1.18rem);font-weight:700;color:var(--ink);transition:color .25s;line-height:1.3}
+.faq-btn:hover{color:var(--p)}
+.faq-icon{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--p-light);display:flex;align-items:center;justify-content:center;transition:background .35s,transform .45s cubic-bezier(.16,1,.3,1)}
+.faq-icon svg{width:13px;height:13px;stroke:var(--p);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke .35s}
+.faq-item.open .faq-btn{color:var(--p)}
+.faq-item.open .faq-icon{background:var(--p);transform:rotate(45deg)}
+.faq-item.open .faq-icon svg{stroke:#fff}
+.faq-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .44s cubic-bezier(.16,1,.3,1)}
+.faq-item.open .faq-body{grid-template-rows:1fr}
+.faq-inner{overflow:hidden}
+.faq-inner p{color:var(--ink2);font-size:.95rem;line-height:1.85;font-weight:300;max-width:680px;padding-bottom:0;transition:padding-bottom .44s cubic-bezier(.16,1,.3,1)}
+.faq-item.open .faq-inner p{padding-bottom:1.75rem}
+
 /* CONTACT */
-#contact{background:var(--off)}
+#contact{background:var(--white)}
 .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-top:4rem;align-items:start}
 .contact-big{font-family:'Fraunces',serif;font-size:clamp(1.8rem,4vw,3.2rem);font-weight:900;line-height:1.05;letter-spacing:-.03em;color:var(--ink);margin-bottom:1.5rem}
 .contact-big em{color:var(--p);font-style:italic}
@@ -155,7 +176,7 @@ section{padding:7rem 5vw;position:relative}
 .c-dot{width:8px;height:8px;border-radius:50%;background:var(--p);flex-shrink:0}
 .f-group{margin-bottom:1.4rem}
 .f-label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3);margin-bottom:.55rem}
-.f-input{width:100%;background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:.8rem 1.1rem;color:var(--ink);font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:400;outline:none;transition:border-color .25s}
+.f-input{width:100%;background:var(--off);border:1.5px solid var(--border);border-radius:12px;padding:.8rem 1.1rem;color:var(--ink);font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:400;outline:none;transition:border-color .25s}
 .f-input:focus{border-color:var(--p)}
 .f-input::placeholder{color:var(--border)}
 textarea.f-input{resize:none;height:100px}
@@ -198,6 +219,7 @@ footer{background:var(--ink);padding:2.5rem 5vw;display:flex;flex-wrap:wrap;just
   .contact-wrap{grid-template-columns:1fr;gap:3.5rem}
   footer{flex-direction:column;text-align:center}
   section{padding:4.5rem 5vw}
+  .faq-top{flex-direction:column;gap:1rem}
 }
 @media(min-width:769px) and (max-width:1060px){
   .svc-grid{grid-template-columns:1fr 1fr}
@@ -220,6 +242,7 @@ footer{background:var(--ink);padding:2.5rem 5vw;display:flex;flex-wrap:wrap;just
     <a href="#services">Services</a>
     <a href="#writing">Writing</a>
     <a href="#projects">Projects</a>
+    <a href="#faq">FAQ</a>
     <a href="#contact" class="nav-cta btn-primary" style="padding:.45rem 1.25rem;font-size:.82rem;border-radius:100px">Hire Me</a>
   </div>
   <div class="hamburger" id="hbg" onclick="toggleMob()">
@@ -232,6 +255,7 @@ footer{background:var(--ink);padding:2.5rem 5vw;display:flex;flex-wrap:wrap;just
   <a href="#services" onclick="closeMob()">Services</a>
   <a href="#writing" onclick="closeMob()">Writing</a>
   <a href="#projects" onclick="closeMob()">Projects</a>
+  <a href="#faq" onclick="closeMob()">FAQ</a>
   <a href="#contact" onclick="closeMob()">Contact</a>
 </div>
 
@@ -403,27 +427,33 @@ footer{background:var(--ink);padding:2.5rem 5vw;display:flex;flex-wrap:wrap;just
 <section id="projects">
   <div class="reveal"><div class="eyebrow">Dev Work</div><h2 class="sec-title">Projects</h2></div>
   <div class="proj-list">
-        <a class="proj-row reveal d1" href="https://x-entertainment.vercel.app" target="_blank">
+    <a class="proj-row reveal d1" href="https://x-entertainment.vercel.app" target="_blank">
       <div class="proj-idx">01</div>
       <div><div class="proj-name">X-Entertainment</div><div class="proj-sub">A DJ Website &middot; REACT /NODE.JS/TYPESCRIPT </div></div>
       <div class="proj-tag">Live</div>
       <div class="proj-arr">&#8599;</div>
     </a>
-        <a class="proj-row reveal" href="https://kellen-cl.github.io/prayer-haven/" target="_blank">
+    <a class="proj-row reveal" href="https://kellen-cl.github.io/prayer-haven/" target="_blank">
       <div class="proj-idx">02</div>
       <div><div class="proj-name">Prayer Haven</div><div class="proj-sub">Catholic prayer companion &middot; Devotional app</div></div>
       <div class="proj-tag">Live</div>
       <div class="proj-arr">&#8599;</div>
     </a>
-        <a class="proj-row reveal d2" href="https://kellen-cl.github.io/swiftmart/" target="_blank">
+    <a class="proj-row reveal d2" href="https://kellen-cl.github.io/swiftmart/" target="_blank">
       <div class="proj-idx">03</div>
       <div><div class="proj-name">SwiftMart Supermarket</div><div class="proj-sub">Dynamic site &middot; Product catalog</div></div>
       <div class="proj-tag">Live</div>
       <div class="proj-arr">&#8599;</div>
     </a>
-        <a class="proj-row reveal d1" href="https://kellen-cl.github.io/gymio/" target="_blank">
+    <a class="proj-row reveal d1" href="https://kellen-cl.github.io/gymio/" target="_blank">
       <div class="proj-idx">04</div>
       <div><div class="proj-name">Gymio Fitness</div><div class="proj-sub">Gym website &middot; Booking &middot; Schedules</div></div>
+      <div class="proj-tag">Live</div>
+      <div class="proj-arr">&#8599;</div>
+    </a>
+    <a class="proj-row reveal d1" href="https://kellen-cl.github.io/Kahoro/" target="_blank">
+      <div class="proj-idx">04</div>
+      <div><div class="proj-name">K.Kahoro</div><div class="proj-sub">Personal Portfolio website &middot; Services &middot; Contact</div></div>
       <div class="proj-tag">Live</div>
       <div class="proj-arr">&#8599;</div>
     </a>
@@ -433,10 +463,93 @@ footer{background:var(--ink);padding:2.5rem 5vw;display:flex;flex-wrap:wrap;just
       <div class="proj-tag">Live</div>
       <div class="proj-arr">&#8599;</div>
     </a>
-
-
   </div>
   <a class="proj-gh-btn reveal" href="https://github.com/kellen-cl" target="_blank">View all on GitHub &#8599;</a>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-top reveal">
+    <div>
+      <div class="eyebrow">Quick Answers</div>
+      <h2 class="sec-title">FAQ</h2>
+    </div>
+    <p class="faq-note">Everything you need to know before we start working together.</p>
+  </div>
+
+  <div class="faq-list reveal d1">
+
+    <div class="faq-item">
+      <button class="faq-btn" aria-expanded="false">
+        What services do you offer?
+        <span class="faq-icon" aria-hidden="true">
+          <svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg>
+        </span>
+      </button>
+      <div class="faq-body" role="region">
+        <div class="faq-inner">
+          <p>I provide full-stack web development, mobile app development, UI/UX design, and API integration. Whether you need a landing page, a complete web platform, or a custom-designed interface, I've got you covered end-to-end.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-btn" aria-expanded="false">
+        How much do your services cost?
+        <span class="faq-icon" aria-hidden="true">
+          <svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg>
+        </span>
+      </button>
+      <div class="faq-body" role="region">
+        <div class="faq-inner">
+          <p>Pricing depends on the project scope and complexity. Every project is different, so I don't believe in one-size-fits-all rates. Reach out through the contact form below and I'll put together a custom quote tailored to your needs.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-btn" aria-expanded="false">
+        How long does a project take?
+        <span class="faq-icon" aria-hidden="true">
+          <svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg>
+        </span>
+      </button>
+      <div class="faq-body" role="region">
+        <div class="faq-inner">
+          <p>Timelines vary based on the scope and requirements of your project. Most projects take anywhere from a few days to a few weeks. I'll give you a realistic timeline upfront so there are no surprises.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-btn" aria-expanded="false">
+        Do you offer ongoing support?
+        <span class="faq-icon" aria-hidden="true">
+          <svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg>
+        </span>
+      </button>
+      <div class="faq-body" role="region">
+        <div class="faq-inner">
+          <p>Yes &mdash; I offer maintenance and support after every project is completed. Whether you need updates, bug fixes, or new features down the line, I'm here to keep your product running smoothly.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-btn" aria-expanded="false">
+        How can I get started?
+        <span class="faq-icon" aria-hidden="true">
+          <svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg>
+        </span>
+      </button>
+      <div class="faq-body" role="region">
+        <div class="faq-inner">
+          <p>Simply reach out through the contact form below, send me an email, or connect via any of the social links listed. I'll get back to you as quickly as possible and we can take it from there.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <!-- CONTACT -->
@@ -454,12 +567,14 @@ footer{background:var(--ink);padding:2.5rem 5vw;display:flex;flex-wrap:wrap;just
       </div>
     </div>
     <div class="reveal d2">
-      <form id="contact-form" action="https://formspree.io/f/mzzvlvny" method="POST">        <div class="f-group"><label class="f-label">Your Name</label><input class="f-input" type="text" name="name" placeholder="Your full name" required></div>
+      <form id="contact-form" action="https://formspree.io/f/mzzvlvny" method="POST">
+        <div class="f-group"><label class="f-label">Your Name</label><input class="f-input" type="text" name="name" placeholder="Your full name" required></div>
         <div class="f-group"><label class="f-label">Email Address</label><input class="f-input" type="email" name="_replyto" placeholder="hello@example.com" required></div>
         <div class="f-group"><label class="f-label">Phone (optional)</label><input class="f-input" type="tel" name="phone" placeholder="+254 700 000 000"></div>
         <div class="f-group"><label class="f-label">Message</label><textarea class="f-input" name="message" placeholder="Tell me about your project..." required></textarea></div>
-    <button type="submit" class="btn-send">Send Message &#8594;</button>
-    <p id="form-success" style="display:none;margin-top:1.1rem;color:var(--p);font-weight:600;font-size:.9rem;">✓ Thank you! Your message has been sent.</p>      </form>
+        <button type="submit" class="btn-send">Send Message &#8594;</button>
+        <p id="form-success" style="display:none;margin-top:1.1rem;color:var(--p);font-weight:600;font-size:.9rem;">&#10003; Thank you! Your message has been sent.</p>
+      </form>
     </div>
   </div>
 </section>
@@ -475,11 +590,14 @@ footer{background:var(--ink);padding:2.5rem 5vw;display:flex;flex-wrap:wrap;just
 </footer>
 
 <script>
+// Loader
 window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('done'),1300))
 
+// Sticky nav
 const nav=document.getElementById('nav')
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60))
 
+// Mobile menu
 function toggleMob(){
   const m=document.getElementById('mobMenu'),open=m.classList.toggle('open')
   const h1=document.getElementById('h1'),h2=document.getElementById('h2'),h3=document.getElementById('h3')
@@ -491,9 +609,11 @@ function closeMob(){
   ;['h1','h2','h3'].forEach(id=>document.getElementById(id).style.cssText='')
 }
 
+// Scroll reveal
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:.1})
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el))
 
+// Counter animation
 const co=new IntersectionObserver(es=>es.forEach(e=>{
   if(!e.isIntersecting)return
   const el=e.target,t=+el.dataset.count;let n=0
@@ -501,7 +621,9 @@ const co=new IntersectionObserver(es=>es.forEach(e=>{
   co.unobserve(el)
 }),{threshold:.5})
 document.querySelectorAll('[data-count]').forEach(el=>co.observe(el))
-  document.getElementById('contact-form').addEventListener('submit', async function(e) {
+
+// Contact form
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
   e.preventDefault();
   const form = e.target;
   const btn = form.querySelector('.btn-send');
@@ -527,6 +649,26 @@ document.querySelectorAll('[data-count]').forEach(el=>co.observe(el))
     btn.disabled = false;
     alert('Network error. Please check your connection.');
   }
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+
+    // Close all open items
+    document.querySelectorAll('.faq-item.open').forEach(openItem => {
+      openItem.classList.remove('open');
+      openItem.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+    });
+
+    // Open clicked item if it was closed
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
 });
 </script>
 </body>
